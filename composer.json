@@ -1,0 +1,36 @@
+{
+  "name": "fajuu/flarum-serve",
+  "description": "Start Flarum in the PHP development server.",
+  "keywords": [
+    "fajuu",
+    "serve",
+    "webserver"
+  ],
+  "homepage": "https://github.com/Fajuu/flarum-serve",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fajuu",
+      "email": "Fajuu@mykill.pl",
+      "homepage": "https://mykill.pl"
+    }
+  ],
+  "require": {
+    "flarum/core": ">=0.1.0-beta.10 <0.1.0-beta.12",
+    "symfony/web-server-bundle": "4.4",
+    "symfony/console": "^4.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fajuu\\Serve\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "flarum/core/src/Foundation/InstalledApp.php",
+      "flarum/core/src/Install/Installer.php"
+    ],
+    "files": [
+      "src/Overrides/InstalledApp.php",
+      "src/Overrides/Installer.php"
+    ]
+  }
+}

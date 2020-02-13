@@ -38,7 +38,7 @@ class Installer implements AppInterface
      */
     public function getRequestHandler()
     {
-        $pipe = new MiddlewarePipe;
+        $pipe = new MiddlewarePipe();
         $pipe->pipe(new HandleErrors(
             $this->container->make(Registry::class),
             $this->container->make(WhoopsFormatter::class),

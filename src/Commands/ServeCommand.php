@@ -55,12 +55,14 @@ class ServeCommand extends AbstractCommand
             }
             $io->success($message);
 
-            if (!$this->checkAddress($getAddress, app('flarum.config')['url']) and $this->parseAddress(app('flarum.config')['url']) == '127.0.0.1:80') {
-                $io->note('Use address from configuration: '.app('flarum.config')['url']);
-            }
+            if(!empty(app('flarum.config'))) {
+                if (!$this->checkAddress($getAddress, app('flarum.config')['url']) and $this->parseAddress(app('flarum.config')['url']) == '127.0.0.1:80') {
+                    $io->note('Use address from configuration: '.app('flarum.config')['url']);
+                }
 
-            if ($this->checkAddress($getAddress, app('flarum.config')['url'])) {
-                $io->warning('The url in `config.php` is different from the server address. This may cause flarum errors.');
+                if ($this->checkAddress($getAddress, app('flarum.config')['url'])) {
+                    $io->warning('The url in `config.php` is different from the server address. This may cause flarum errors.');
+                }
             }
 
             if (ini_get('xdebug.profiler_enable_trigger')) {

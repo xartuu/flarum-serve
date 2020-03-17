@@ -55,7 +55,7 @@ class ServeCommand extends AbstractCommand
             }
             $io->success($message);
 
-            if(!empty(app('flarum.config'))) {
+            if (!empty(app('flarum.config'))) {
                 if (!$this->checkAddress($getAddress, app('flarum.config')['url']) and $this->parseAddress(app('flarum.config')['url']) == '127.0.0.1:80') {
                     $io->note('Use address from configuration: '.app('flarum.config')['url']);
                 }

@@ -1,12 +1,12 @@
 <h1 align="center">Flarum Serve</h1>
 <p align="center">
-  <img src="https://img.shields.io/github/release/Fajuu/flarum-serve.svg" />
-  <img src="https://img.shields.io/github/release-date/Fajuu/flarum-serve.svg" />
-  <img src="https://img.shields.io/github/languages/top/Fajuu/flarum-serve.svg" />
-  <a href="https://packagist.org/packages/Fajuu/flarum-serve">
-    <img src="https://img.shields.io/packagist/dt/Fajuu/flarum-serve.svg" target="_blank" />
+  <img src="https://img.shields.io/github/release/Artuuuu/flarum-serve.svg" />
+  <img src="https://img.shields.io/github/release-date/Artuuuu/flarum-serve.svg" />
+  <img src="https://img.shields.io/github/languages/top/Artuuuu/flarum-serve.svg" />
+  <a href="https://packagist.org/packages/Artuu/flarum-serve">
+    <img src="https://img.shields.io/packagist/dt/Artuu/flarum-serve.svg" target="_blank" />
   </a>
-  <a href="https://github.com/Fajuu/flarum-serve/blob/master/LICENSE">
+  <a href="https://github.com/Artuuuu/flarum-serve/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
   </a>
 </p>
@@ -24,7 +24,7 @@
 To download the ~~extension~~ _tool_ you can ~~use [Bazaar](https://discuss.flarum.org/d/5151-flagrow-bazaar-the-extension-marketplace)~~ ~~or~~ _only_ install it through composer:
 
 ```bash
-composer require fajuu/flarum-serve
+composer require artuu/flarum-serve
 ```
 
 ## ✨ Demo
@@ -49,15 +49,14 @@ The extension is aimed at developers and individuals who do not have apache or n
 
 ## 🔗 Links
 
-- [Flarum Discuss post](https://discuss.flarum.org/d/22748-serve-by-fajuu)
-- [Source code on GitHub](https://github.com/Fajuu/flarum-serve)
-- [Flagrow Extension](https://flagrow.io/extensions/Fajuu/flarum-serve)
-- [Download via Packagist](https://packagist.org/packages/Fajuu/flarum-serve)
+- [Flarum Discuss post](https://discuss.flarum.org/d/22748-serve-by-artuu)
+- [Source code on GitHub](https://github.com/Artuuuu/flarum-serve)
+- [Download via Packagist](https://packagist.org/packages/Artuu/flarum-serve)
 
 ## 📝 License
 
-Copyright © 2020 [Fajuu](https://mykill.pl/u/Fajuu).<br /> This project is [MIT](https://github.com/Fajuu/flarum-serve/blob/master/LICENSE) licensed.
+Copyright © 2020 [Artuu](https://mykill.pl/u/Artuu).<br /> This project is [MIT](https://github.com/Artuuuu/flarum-serve/blob/master/LICENSE) licensed.
 
 ---
 
-_Extension created by [@Fajuu](https://github.com/Fajuu), the owner of [My Kill](https://mykill.pl)_
+_Extension created by [@Artuu](https://github.com/Artuuuu), the owner of [My Kill](https://mykill.pl)_

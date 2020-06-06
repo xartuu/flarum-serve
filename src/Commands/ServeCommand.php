@@ -1,6 +1,6 @@
 <?php
 
-namespace Fajuu\Serve\Commands;
+namespace Artuu\Serve\Commands;
 
 use Flarum\Console\AbstractCommand;
 use Symfony\Bundle\WebServerBundle\WebServer;

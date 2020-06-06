@@ -9,13 +9,10 @@
 
 namespace Flarum\Foundation;
 
-use Flarum\Database\Console\GenerateMigrationCommand;
-use Flarum\Database\Console\MigrateCommand;
-use Flarum\Database\Console\ResetCommand;
-use Flarum\Foundation\Console\CacheClearCommand;
 use Flarum\Foundation\Console\InfoCommand;
 use Flarum\Http\Middleware\DispatchRoute;
 use Flarum\Settings\SettingsRepositoryInterface;
+use Illuminate\Console\Command;
 use Illuminate\Contracts\Container\Container;
 use Laminas\Stratigility\Middleware\OriginalMessages;
 use Laminas\Stratigility\MiddlewarePipe;
@@ -57,15 +54,15 @@ class InstalledApp implements AppInterface
             return $this->getUpdaterHandler();
         }
 
-        $pipe = new MiddlewarePipe();
+        $pipe = new MiddlewarePipe;
 
         $pipe->pipe(new BasePath($this->basePath()));
-        $pipe->pipe(new OriginalMessages());
+        $pipe->pipe(new OriginalMessages);
         $pipe->pipe(
             new BasePathRouter([
-                $this->subPath('api')   => 'flarum.api.handler',
+                $this->subPath('api') => 'flarum.api.handler',
                 $this->subPath('admin') => 'flarum.admin.handler',
-                '/'                     => 'flarum.forum.handler',
+                '/' => 'flarum.forum.handler',
             ])
         );
         $pipe->pipe(new RequestHandler($this->container));
@@ -91,7 +88,7 @@ class InstalledApp implements AppInterface
      */
     private function getUpdaterHandler()
     {
-        $pipe = new MiddlewarePipe();
+        $pipe = new MiddlewarePipe;
         $pipe->pipe(new BasePath($this->basePath()));
         $pipe->pipe(
             new DispatchRoute($this->container->make('flarum.update.routes'))
@@ -115,13 +112,22 @@ class InstalledApp implements AppInterface
      */
     public function getConsoleCommands()
     {
-        return [
-            $this->container->make(GenerateMigrationCommand::class),
-            $this->container->make(InfoCommand::class, ['config' => $this->config]),
-            $this->container->make(MigrateCommand::class),
-            $this->container->make(ResetCommand::class),
-            $this->container->make(CacheClearCommand::class),
-            $this->container->make(\Fajuu\Serve\Commands\ServeCommand::class),
-        ];
+        $commands = [];
+
+        // The info command is a special case, as it requires a config parameter that's only available here.
+        $commands[] = $this->container->make(InfoCommand::class, ['config' => $this->config]);
+        $commands[] = $this->container->make(\Artuu\Serve\Commands\ServeCommand::class);
+
+        foreach ($this->container->make('flarum.console.commands') as $command) {
+            $newCommand = $this->container->make($command);
+
+            if ($newCommand instanceof Command) {
+                $newCommand->setLaravel($this->container);
+            }
+
+            $commands[] = $newCommand;
+        }
+
+        return $commands;
     }
 }
